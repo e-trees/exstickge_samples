@@ -4,6 +4,7 @@
 *.log
 
 prj
+prj_vhdl
 mig_7series_0.veo
 mig_7series_0_xmdf.tcl
 xil_txt*

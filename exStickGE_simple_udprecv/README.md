@@ -12,6 +12,13 @@ vivado -mode batch -source create_project.tcl
 
 After building, You can get `top.bit` in `prj/exstickge_simple_udprecv.runs/impl_1/top.bit`
 
+If you want to see VHDL version, run the following.
+
+```
+vivado -mode batch -source create_project_vhdl.tcl
+```
+
+
 ## Run
 Configure your exStickGE by the generated bit file, and connect it to your host PC via GbE.
 
