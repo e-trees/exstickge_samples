@@ -25,14 +25,14 @@ You can get the following messages.
 
 ```
 ...
-Helo: counter=2545792500, diff=125000009
-Helo: counter=2670792509, diff=125000009
-Helo: counter=2795792518, diff=125000009
-Helo: counter=2920792527, diff=125000009
-Helo: counter=3045792536, diff=125000009
-Helo: counter=3170792545, diff=125000009
-Helo: counter=3295792554, diff=125000009
-Helo: counter=3420792563, diff=125000009
+Send: counter=2545792500, diff=125000009
+Send: counter=2670792509, diff=125000009
+Send: counter=2795792518, diff=125000009
+Send: counter=2920792527, diff=125000009
+Send: counter=3045792536, diff=125000009
+Send: counter=3170792545, diff=125000009
+Send: counter=3295792554, diff=125000009
+Send: counter=3420792563, diff=125000009
 ...
 ```
 
