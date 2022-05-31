@@ -237,6 +237,14 @@ architecture RTL of top is
       );
   end component udpled;
 
+  component ila_0
+    port (
+      clk : in std_logic;
+      probe0 : in std_logic_vector(32+1+1+1-1 downto 0);
+      probe1 : in std_logic_vector(32+1+1+1-1 downto 0)
+      );
+  end component ila_0;
+
   signal led_w : std_logic_vector(7 downto 0);
 
 begin
@@ -260,7 +268,7 @@ begin
       reset    => '0',
       locked   => locked,
       -- Clock in ports
-      clk_in1  => sys_clk
+      clk_in1  => GEPHY_MAC_CLK
       );
 
   resetgen_i_0 : resetgen port map(clk => clk125M, reset_in => not locked, reset_out => reset125M);
@@ -291,11 +299,13 @@ begin
   
   idelayctrl_wrapper_i : idelayctrl_wrapper generic map(CLK_PERIOD => 5)
     port map(clk => clk200M, reset => reset200M, ready => open);
+
+  GEPHY_RST_N <= sys_rst_n;
   
   u_e7udpip : e7udpip_rgmii_artix7
     port map(
       -- GMII PHY
-      GEPHY_RST_N     => GEPHY_RST_N,
+      GEPHY_RST_N     => open,
       GEPHY_MAC_CLK   => clk125M,
       GEPHY_MAC_CLK90 => clk125M_90,
       -- TX out
@@ -393,5 +403,11 @@ begin
   pUdp1Send_Request <= pUdp1Receive_Request;
   pUdp1Receive_Ack  <= pUdp1Send_Ack;
   pUdp1Send_Enable  <= pUdp1Receive_Enable;
+
+  ila_0_i: ila_0 port map(
+    clk => clk125M,
+    probe0 => pUdp0Receive_Request & pUdp0Receive_Ack & pUdp0Receive_Enable & pUdp0Receive_Data,
+    probe1 => pUdp0Send_Request & pUdp0Send_Ack & pUdp0Send_Enable & pUdp0Send_Data
+    );
 
 end architecture RTL;

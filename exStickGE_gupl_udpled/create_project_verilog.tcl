@@ -1,13 +1,14 @@
-set project_dir    "./prj"
+set project_dir    "./prj_verilog"
 set project_name   "exstickge_gupl_udpled"
 set project_target "xc7a200tsbg484-2"
 set source_files { \
   ../edif/e7udpip_rgmii_artix7.edif \
+  ../edif/e7udpip_rgmii_artix7_stub.v \
   ../misc/resetgen.v \
   ../misc/idelayctrl_wrapper.v \
   ../misc/pulse_timer.v \
   ./sources/udpled.vhd \
-  ./sources/top.vhd \
+  ./sources/top.v \
 }
 
 set constraint_files { \
