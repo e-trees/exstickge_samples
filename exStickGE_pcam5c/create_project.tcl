@@ -1,4 +1,4 @@
-set project_dir    "./prj2"
+set project_dir    "./prj"
 set project_name   "exstickge_pcam"
 set project_target "xc7a200tsbg484-2"
 set source_files { \
