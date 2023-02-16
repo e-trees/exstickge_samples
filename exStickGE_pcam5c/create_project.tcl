@@ -9,7 +9,7 @@ set source_files { \
 			../misc/idelayctrl_wrapper.v \
 			../misc/axi4_lite_reader.sv \
 			../misc/i2c_iface.vhd \
-			../xilinx/2020.1/mig_a.prj \
+			../xilinx/2022.2/mig_a.prj \
 			../edif/e7udpip_rgmii_artix7.edif \
 			../edif/e7udpip_rgmii_artix7_stub.v \
 		        ../vision/init_sccb_top.vhd \
@@ -28,7 +28,7 @@ set constraint_files { \
 
 set simulation_files { \
 			../vision/init_sccb_top_tb.vhd \
-			../xilinx/2020.1/sccb_bmem_tb.vhd \
+			../xilinx/2022.2/sccb_bmem_tb.vhd \
 		       }
 
 create_project -force $project_name $project_dir -part $project_target
@@ -37,22 +37,22 @@ add_files -fileset constrs_1 -norecurse $constraint_files
 
 update_ip_catalog
 
-import_ip -files ../xilinx/2020.1/fifo_36_1000.xci
-import_ip -files ../xilinx/2020.1/fifo_37_1000_ft.xci
-import_ip -files ../xilinx/2020.1/fifo_40_32_ft.xci
-import_ip -files ../xilinx/2020.1/mig_7series_0.xci
-import_ip -files ../xilinx/2020.1/mipi_csi2_rx_subsystem_0.xci
-import_ip -files ../xilinx/2020.1/mipi_csi2_rx_subsystem_0_1.xci
-import_ip -files ../xilinx/2020.1/sccb_bmem.xci
-import_ip -files ../xilinx/2020.1/fifo_dataread.xci
-import_ip -files ./ip/clk_wiz_0.xci
-import_ip -files ./ip/clk_wiz_1.xci
-import_ip -files ./ip/ila_0.xci
-import_ip -files ./ip/ila_1.xci
-import_ip -files ./ip/ila_2.xci
-import_ip -files ./ip/ila_3.xci
-import_ip -files ./ip/vio_0.xci
-import_ip -files ./ip/vio_1.xci
+import_ip -files ../xilinx/2022.2/fifo_36_1000.xci
+import_ip -files ../xilinx/2022.2/fifo_37_1000_ft.xci
+import_ip -files ../xilinx/2022.2/fifo_40_32_ft.xci
+import_ip -files ../xilinx/2022.2/mig_7series_0.xci
+import_ip -files ../xilinx/2022.2/mipi_csi2_rx_subsystem_0.xci
+import_ip -files ../xilinx/2022.2/mipi_csi2_rx_subsystem_0_1.xci
+import_ip -files ../xilinx/2022.2/sccb_bmem.xci
+import_ip -files ../xilinx/2022.2/fifo_dataread.xci
+import_ip -files ./ip/2022.2/clk_wiz_0.xci
+import_ip -files ./ip/2022.2/clk_wiz_1.xci
+import_ip -files ./ip/2022.2/ila_0.xci
+import_ip -files ./ip/2022.2/ila_1.xci
+import_ip -files ./ip/2022.2/ila_2.xci
+import_ip -files ./ip/2022.2/ila_3.xci
+import_ip -files ./ip/2022.2/vio_0.xci
+import_ip -files ./ip/2022.2/vio_1.xci
 
 set_property top top [current_fileset]
 set_property target_constrs_file ./sources/top.xdc [current_fileset -constrset]

@@ -2,7 +2,8 @@
 
 module videoaxis2dram
 #(
-    parameter WIDTH = 32'hd1600
+    parameter WIDTH = 32'hd1600,
+    parameter MEM_STARTADDRESS = 32'h0
 ) (
    input wire clk,
    input wire rst,
@@ -89,7 +90,7 @@ module videoaxis2dram
 	  write_cnt <= 8'h0;
     end
 
-    wire [31:0] address = ((y_cnt * WIDTH) + (x_cnt - write_cnt)) * 32'h4;
+    wire [31:0] address = MEM_STARTADDRESS + (((y_cnt * WIDTH) + (x_cnt - write_cnt)) * 32'h4);
     always @(posedge vid_clk) begin
 	if(rst) begin
 	    ctrl_in <= 40'h0;
